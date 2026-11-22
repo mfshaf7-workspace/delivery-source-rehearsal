@@ -1,0 +1,19 @@
+"""Actual owner-control checks, not substitute app/conformance tests."""
+import importlib.util
+from pathlib import Path
+import unittest
+
+ROOT = Path(__file__).resolve().parents[1]
+spec = importlib.util.spec_from_file_location("owner_controls", ROOT / "scripts/validate_owner.py")
+owner_controls = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(owner_controls)
+
+
+class OwnerControlTests(unittest.TestCase):
+    def test_actual_base_owned_profile_and_guidance(self):
+        profile = owner_controls.validate(ROOT)
+        self.assertEqual(profile["owner_repo"], "delivery-source-rehearsal")
+
+
+if __name__ == "__main__":
+    unittest.main()

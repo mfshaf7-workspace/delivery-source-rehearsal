@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "profile_id": "owner-source-controls",
+  "owner_repo": "delivery-source-rehearsal",
+  "application_verification": {
+    "mode": "unconfigured",
+    "manual_checks": []
+  },
+  "commands": [
+    {
+      "id": "source-controls",
+      "kind": "validations",
+      "name": "Validate reviewed source-owner controls; not application acceptance",
+      "executable": "python3",
+      "args": [
+        "scripts/validate_owner.py",
+        "--repo-root",
+        "."
+      ],
+      "fidelity": "filesystem",
+      "conformance_binding": "none",
+      "timeout_seconds": 120,
+      "scope": "source-controls"
+    },
+    {
+      "id": "source-diff",
+      "kind": "validations",
+      "name": "Validate the exact source diff; not application acceptance",
+      "executable": "git",
+      "args": [
+        "diff",
+        "--check",
+        "{{base_commit}}...{{head_commit}}"
+      ],
+      "fidelity": "real-git",
+      "conformance_binding": "none",
+      "timeout_seconds": 120,
+      "scope": "source-controls"
+    }
+  ]
+}

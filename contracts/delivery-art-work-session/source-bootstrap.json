@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "owner_repo": "delivery-source-rehearsal",
+  "template": {
+    "id": "source-owner-bootstrap-v1",
+    "owner_repo": "operator-orchestration-service",
+    "digest": "sha256:a6186e5a163cedc8064f1ac227a543409c7fa57f6994c5df1cfcc2111552f2dc"
+  },
+  "provider_repository": {
+    "full_name": "mfshaf7-workspace/delivery-source-rehearsal",
+    "provider": "github",
+    "provider_repository_id": "1467144992"
+  },
+  "intake_entry_ref": {
+    "id": "repo:delivery-source-rehearsal",
+    "version": 1,
+    "digest": "sha256:4ae66695df789e8da122db9fa8a750fe41a8b2228734169d8d80f6bdba7ae30e"
+  },
+  "evidence_profile_digest": "sha256:00c0af767a8d6c844f21c453f8102795750415d44f0b8fb611ea86e61bedb98b",
+  "application_markers": [],
+  "app_acceptance": false,
+  "inventory_admission": false,
+  "runtime_activation": false
+}
